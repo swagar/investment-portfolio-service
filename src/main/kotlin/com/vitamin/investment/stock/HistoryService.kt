@@ -4,7 +4,7 @@ import java.time.LocalDate
 
 class HistoryService(private val histories: Map<String, History>) {
 
-    fun findEntry(ticker: String, targetDate: LocalDate, endDate: LocalDate): HistoryEntry{
+    fun findEntry(ticker: String, targetDate: LocalDate): HistoryEntry{
         val history = histories[ticker]!!.historical
 
         var targetOrAfterIdx = -1

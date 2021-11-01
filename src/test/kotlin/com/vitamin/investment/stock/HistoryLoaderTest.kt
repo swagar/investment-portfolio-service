@@ -3,7 +3,6 @@ package com.vitamin.investment.stock
 import com.vitamin.investment.InvestmentPortfolioServiceApplicationTests
 import com.vitamin.investment.calculate.Request
 import com.vitamin.investment.calculate.WeightedStock
-import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -16,7 +15,6 @@ import org.springframework.test.web.client.MockRestServiceServer
 import org.springframework.test.web.client.match.MockRestRequestMatchers
 import org.springframework.test.web.client.response.MockRestResponseCreators
 import org.springframework.web.client.RestTemplate
-import java.math.BigDecimal
 import java.math.BigDecimal.ONE
 import java.math.BigDecimal.valueOf
 import java.net.URI
@@ -59,7 +57,7 @@ class HistoryLoaderTest {
         val historyService = historyLoader.load(request)
 
         // then
-        val cakeEntry = historyService.findEntry("CAKE", startDate,endDate)
+        val cakeEntry = historyService.findEntry("CAKE", startDate)
         assert(cakeEntry.date.isEqual(startDate))
     }
 

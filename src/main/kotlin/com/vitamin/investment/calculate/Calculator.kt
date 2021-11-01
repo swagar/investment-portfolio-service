@@ -12,7 +12,7 @@ class Calculator (private val request: Request,
     var numInvestments : BigDecimal = ZERO
 
     fun calculateCurrentValue() : CurrentValue {
-        var currentDate = firstInvestmentDate(request.startDate)
+        var currentDate = firstInvestmentDate()
         while (!currentDate.isAfter(request.endDate)){
 
             invest(currentDate)
@@ -26,12 +26,12 @@ class Calculator (private val request: Request,
     private fun nextInvestmentDate(currentDate: LocalDate) =
             currentDate.plusMonths(1).withDayOfMonth(1)
 
-    private fun firstInvestmentDate(currentDate: LocalDate) =
+    private fun firstInvestmentDate() =
             nextInvestmentDate(request.startDate.minusDays(1))
 
     private fun invest(currentDate: LocalDate){
         request.portfolio.forEach {
-            val currentPrice = historyService.findEntry(it.ticker, currentDate, request.endDate)
+            val currentPrice = historyService.findEntry(it.ticker, currentDate)
             val numNewStocks = request.monthlyContribution * it.weight / currentPrice.close
 
             when (val numStocks = stockAccount[it.ticker]){
@@ -44,10 +44,10 @@ class Calculator (private val request: Request,
     }
 
     private fun calulateCurrentValue(): CurrentValue{
-        var porfolioValue = ZERO;
+        var porfolioValue = ZERO
 
         stockAccount.forEach{
-            val priceOnEndDate = historyService.findEntry(it.key, request.endDate, request.endDate)
+            val priceOnEndDate = historyService.findEntry(it.key, request.endDate)
             porfolioValue += (priceOnEndDate.close * it.value)
         }
 
