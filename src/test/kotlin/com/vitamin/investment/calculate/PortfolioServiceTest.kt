@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest
 class PortfolioServiceTest {
     @Autowired
     lateinit var om: ObjectMapper
-    
+
     @Test
     fun test_parsing_portfolios() {
         // given
