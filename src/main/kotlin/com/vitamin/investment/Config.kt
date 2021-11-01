@@ -6,8 +6,14 @@ import com.fasterxml.jackson.datatype.jdk8.Jdk8Module
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule
+import org.springframework.boot.web.client.RestTemplateBuilder
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.web.client.RestTemplate
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+
+
+
 
 @Configuration
 class Config {
@@ -19,4 +25,16 @@ class Config {
                     .registerModule(Jdk8Module())
                     .registerModule(KotlinModule())
                     .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+
+    @Bean
+    fun restTemplate(restTemplateBuilder: RestTemplateBuilder, objectMapper: ObjectMapper): RestTemplate =
+            restTemplateBuilder
+                    .messageConverters(createConverter(objectMapper))
+                    .build()
+
+    private fun createConverter(objectMapper: ObjectMapper): MappingJackson2HttpMessageConverter? {
+        val converter = MappingJackson2HttpMessageConverter()
+        converter.objectMapper = objectMapper
+        return converter
+    }
 }

@@ -1,4 +1,4 @@
-package com.vitamin.investment.investment
+package com.vitamin.investment.calculate
 
 import java.math.BigDecimal
 import java.time.LocalDate

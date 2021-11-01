@@ -1,17 +1,14 @@
-package com.vitamin.investment
+package com.vitamin.investment.calculate
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.vitamin.investment.investment.Calculator
-import com.vitamin.investment.investment.Request
-import com.vitamin.investment.investment.WeightedStock
+import com.vitamin.investment.InvestmentPortfolioServiceApplicationTests
+import com.vitamin.investment.readValue
 import com.vitamin.investment.stock.History
 import com.vitamin.investment.stock.HistoryService
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
-import java.math.BigDecimal
 import java.math.BigDecimal.valueOf
-import java.time.LocalDate
 import java.time.LocalDate.of
 
 @SpringBootTest

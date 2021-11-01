@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
-import com.vitamin.investment.investment.WeightedStock
+import com.vitamin.investment.calculate.WeightedStock
 import com.vitamin.investment.stock.History
 import org.springframework.beans.factory.annotation.Autowired
 

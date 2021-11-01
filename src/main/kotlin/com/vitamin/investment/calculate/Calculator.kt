@@ -1,4 +1,4 @@
-package com.vitamin.investment.investment
+package com.vitamin.investment.calculate
 
 import com.vitamin.investment.stock.HistoryService
 import java.math.BigDecimal
