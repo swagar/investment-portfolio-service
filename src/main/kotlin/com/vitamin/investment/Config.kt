@@ -9,13 +9,13 @@ import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule
 import com.vitamin.investment.calculate.PortfolioService
 import com.vitamin.investment.calculate.WeightedStock
+import com.vitamin.investment.stock.HistoryLoader
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.web.client.RestTemplateBuilder
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.web.client.RestTemplate
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
-
-
 
 
 @Configuration
@@ -36,10 +36,25 @@ class Config {
                     .build()
 
     @Bean
-    fun portfolioService(objectMapper: ObjectMapper):PortfolioService{
+    fun portfolioService(objectMapper: ObjectMapper): PortfolioService {
         val portfolios: Map<Int, List<WeightedStock>> = objectMapper.readValue(loadFile("portfolios.json"))
 
-        return PortfolioService(portfolios )
+        return PortfolioService(portfolios)
+    }
+
+    @Bean
+    fun historyLoader(
+            restTemplate: RestTemplate,
+            @Value("\${history.loader.baseUrl:}") baseUrl: String,
+            @Value("\${history.loader.endPoint:/api/v3/historical-price-full/") endPoint: String,
+            @Value("\${history.loader.apiKey:") apiKey: String): HistoryLoader{
+
+        return HistoryLoader(
+                restTemplate = restTemplate,
+                baseUrl = baseUrl,
+                endPoint = endPoint,
+                apiKey = apiKey
+        )
     }
 
     private fun createConverter(objectMapper: ObjectMapper): MappingJackson2HttpMessageConverter? {
@@ -52,4 +67,4 @@ class Config {
             Config::class.java.getResource("/$fileName").readText()
 }
 
-inline fun <reified T> ObjectMapper.readValue(json: String): T = readValue(json, object : TypeReference<T>(){})
+inline fun <reified T> ObjectMapper.readValue(json: String): T = readValue(json, object : TypeReference<T>() {})
