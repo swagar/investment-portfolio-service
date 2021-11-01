@@ -17,11 +17,6 @@ class HistoryService(private val histories: Map<String, History>) {
                 targetOrAfterIdx = i
         }
 
-        val foundEntry = history[targetOrAfterIdx]
-
-        if(foundEntry.date.isAfter(endDate))
-            return history[targetOrAfterIdx+1]
-        else
-            return foundEntry
+        return history[targetOrAfterIdx]
     }
 }
