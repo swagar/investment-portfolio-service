@@ -46,8 +46,8 @@ class Config {
     fun historyLoader(
             restTemplate: RestTemplate,
             @Value("\${history.loader.baseUrl:}") baseUrl: String,
-            @Value("\${history.loader.endPoint:/api/v3/historical-price-full/") endPoint: String,
-            @Value("\${history.loader.apiKey:") apiKey: String): HistoryLoader{
+            @Value("\${history.loader.endPoint:/api/v3/historical-price-full/}") endPoint: String,
+            @Value("\${history.loader.apiKey:}") apiKey: String): HistoryLoader{
 
         return HistoryLoader(
                 restTemplate = restTemplate,

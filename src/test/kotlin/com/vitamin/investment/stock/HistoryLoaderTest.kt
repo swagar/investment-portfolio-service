@@ -1,6 +1,5 @@
 package com.vitamin.investment.stock
 
-import com.vitamin.investment.InvestmentPortfolioServiceApplicationTests
 import com.vitamin.investment.calculate.Request
 import com.vitamin.investment.calculate.WeightedStock
 import org.junit.jupiter.api.BeforeEach
@@ -76,5 +75,5 @@ class HistoryLoaderTest {
     }
 
     private fun loadFile(fileName: String) =
-            InvestmentPortfolioServiceApplicationTests::class.java.getResource("/$fileName").readText()
+            HistoryLoaderTest::class.java.getResource("/$fileName").readText()
 }

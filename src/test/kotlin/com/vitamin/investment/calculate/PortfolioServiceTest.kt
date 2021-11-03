@@ -1,7 +1,6 @@
 package com.vitamin.investment.calculate
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.vitamin.investment.InvestmentPortfolioServiceApplicationTests
 import com.vitamin.investment.readValue
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -26,5 +25,5 @@ class PortfolioServiceTest {
     }
 
     private fun loadFile(fileName: String) =
-            InvestmentPortfolioServiceApplicationTests::class.java.getResource("/$fileName").readText()
+            PortfolioServiceTest::class.java.getResource("/$fileName").readText()
 }

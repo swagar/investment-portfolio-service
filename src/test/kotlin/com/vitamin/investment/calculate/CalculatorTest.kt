@@ -1,7 +1,6 @@
 package com.vitamin.investment.calculate
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.vitamin.investment.InvestmentPortfolioServiceApplicationTests
 import com.vitamin.investment.readValue
 import com.vitamin.investment.stock.History
 import com.vitamin.investment.stock.HistoryService
@@ -58,5 +57,5 @@ class CalculatorTest {
     }
 
     private fun loadFile(fileName: String) =
-            InvestmentPortfolioServiceApplicationTests::class.java.getResource("/$fileName").readText()
+            CalculatorTest::class.java.getResource("/$fileName").readText()
 }

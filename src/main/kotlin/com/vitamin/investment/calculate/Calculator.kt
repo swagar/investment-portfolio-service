@@ -20,7 +20,7 @@ class Calculator (private val request: Request,
             currentDate = nextInvestmentDate(currentDate)
         }
 
-        return calulateCurrentValue()
+        return retrieveCurrentValue()
     }
 
     private fun nextInvestmentDate(currentDate: LocalDate) =
@@ -43,7 +43,7 @@ class Calculator (private val request: Request,
         numInvestments++
     }
 
-    private fun calulateCurrentValue(): CurrentValue{
+    private fun retrieveCurrentValue(): CurrentValue{
         var porfolioValue = ZERO
 
         stockAccount.forEach{
