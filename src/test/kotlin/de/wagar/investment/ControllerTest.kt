@@ -1,8 +1,8 @@
-package com.vitamin.investment
+package de.wagar.investment
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.vitamin.investment.calculate.CurrentValue
-import com.vitamin.investment.calculate.WeightedStock
+import de.wagar.investment.calculate.CurrentValue
+import de.wagar.investment.calculate.WeightedStock
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired

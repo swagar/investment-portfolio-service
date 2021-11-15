@@ -1,4 +1,4 @@
-package com.vitamin.investment.calculate
+package de.wagar.investment.calculate
 
 class PortfolioService(val portfolios: Map<Int, List<WeightedStock>> ) {
 

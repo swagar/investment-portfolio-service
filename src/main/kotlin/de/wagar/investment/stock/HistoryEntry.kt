@@ -1,4 +1,4 @@
-package com.vitamin.investment.stock
+package de.wagar.investment.stock
 
 import java.math.BigDecimal
 import java.time.LocalDate

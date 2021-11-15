@@ -1,4 +1,4 @@
-# vitamin-investment-portfolio-service
+# investment-portfolio-service
 This is a spring-boot app written in Kotlin.
 
 ### You can run the app with the command:

@@ -1,7 +1,7 @@
-package com.vitamin.investment.stock
+package de.wagar.investment.stock
 
-import com.vitamin.investment.calculate.Request
-import com.vitamin.investment.calculate.WeightedStock
+import de.wagar.investment.calculate.Request
+import de.wagar.investment.calculate.WeightedStock
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired

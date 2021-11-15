@@ -1,6 +1,6 @@
-package com.vitamin.investment.stock
+package de.wagar.investment.stock
 
-import com.vitamin.investment.calculate.Request
+import de.wagar.investment.calculate.Request
 import org.springframework.web.client.RestTemplate
 
 class HistoryLoader(
@@ -10,7 +10,7 @@ class HistoryLoader(
         private val apiKey: String
 ) {
 
-    fun load(request: Request): HistoryService{
+    fun load(request: Request): HistoryService {
         val histories = hashMapOf<String, History>()
 
         request.portfolio.forEach {
@@ -21,7 +21,7 @@ class HistoryLoader(
         return HistoryService(histories = histories)
     }
 
-    private fun loadStock(ticker: String, request: Request): History{
+    private fun loadStock(ticker: String, request: Request): History {
         val from = request.startDate.toString()
         val to = request.endDate.toString()
 

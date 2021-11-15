@@ -1,4 +1,4 @@
-package com.vitamin.investment
+package de.wagar.investment
 
 import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.DeserializationFeature
@@ -7,9 +7,9 @@ import com.fasterxml.jackson.datatype.jdk8.Jdk8Module
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule
-import com.vitamin.investment.calculate.PortfolioService
-import com.vitamin.investment.calculate.WeightedStock
-import com.vitamin.investment.stock.HistoryLoader
+import de.wagar.investment.calculate.PortfolioService
+import de.wagar.investment.calculate.WeightedStock
+import de.wagar.investment.stock.HistoryLoader
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.web.client.RestTemplateBuilder
 import org.springframework.context.annotation.Bean
@@ -47,7 +47,7 @@ class Config {
             restTemplate: RestTemplate,
             @Value("\${history.loader.baseUrl:}") baseUrl: String,
             @Value("\${history.loader.endPoint:/api/v3/historical-price-full/}") endPoint: String,
-            @Value("\${history.loader.apiKey:}") apiKey: String): HistoryLoader{
+            @Value("\${history.loader.apiKey:}") apiKey: String): HistoryLoader {
 
         return HistoryLoader(
                 restTemplate = restTemplate,

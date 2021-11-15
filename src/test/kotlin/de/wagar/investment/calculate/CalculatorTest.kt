@@ -1,10 +1,10 @@
-package com.vitamin.investment.calculate
+package de.wagar.investment.calculate
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.vitamin.investment.readValue
-import com.vitamin.investment.stock.History
-import com.vitamin.investment.stock.HistoryEntry
-import com.vitamin.investment.stock.HistoryService
+import de.wagar.investment.readValue
+import de.wagar.investment.stock.History
+import de.wagar.investment.stock.HistoryEntry
+import de.wagar.investment.stock.HistoryService
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest

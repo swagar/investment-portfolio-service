@@ -1,6 +1,6 @@
-package com.vitamin.investment.calculate
+package de.wagar.investment.calculate
 
-import com.vitamin.investment.stock.HistoryService
+import de.wagar.investment.stock.HistoryService
 import java.math.BigDecimal
 import java.math.BigDecimal.*
 import java.time.LocalDate
@@ -43,7 +43,7 @@ class Calculator (private val request: Request,
         numInvestments++
     }
 
-    private fun retrieveCurrentValue(): CurrentValue{
+    private fun retrieveCurrentValue(): CurrentValue {
         var porfolioValue = ZERO
 
         stockAccount.forEach{

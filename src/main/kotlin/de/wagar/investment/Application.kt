@@ -1,4 +1,4 @@
-package com.vitamin.investment
+package de.wagar.investment
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

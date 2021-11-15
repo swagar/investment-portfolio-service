@@ -1,12 +1,10 @@
-package com.vitamin.investment
+package de.wagar.investment
 
-import com.vitamin.investment.calculate.*
-import com.vitamin.investment.stock.HistoryLoader
+import de.wagar.investment.stock.HistoryLoader
+import de.wagar.investment.calculate.*
 import org.springframework.format.annotation.DateTimeFormat
 import org.springframework.format.annotation.DateTimeFormat.ISO.DATE
-import org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import java.math.BigDecimal
@@ -32,7 +30,7 @@ class Controller(
             @DateTimeFormat(iso = DATE)
             endDate: LocalDate,
             @RequestParam("monthlyContribution") monthlyContribution: BigDecimal,
-            @RequestParam("riskLevel") riskLevel: Int): CurrentValue{
+            @RequestParam("riskLevel") riskLevel: Int): CurrentValue {
         val portfolio = portfolioService.getPortfolio(riskLevel)
         val request = Request(
                 startDate = startDate,

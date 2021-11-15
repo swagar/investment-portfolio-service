@@ -1,7 +1,7 @@
-package com.vitamin.investment.calculate
+package de.wagar.investment.calculate
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.vitamin.investment.readValue
+import de.wagar.investment.readValue
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
